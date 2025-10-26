@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🏠 AQASMO | Premium Household Products</title>
+  <meta name="description" content="AQASMO offers premium household essentials that combine modern design and lasting quality. Shop our Amazon US store for cleaning tools, kitchen products, and home solutions.">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #1e88e5;
+      --secondary-color: #1565c0;
+      --text-color: #333;
+      --light-gray: #f7f9fc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-gray);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* ---------------- HEADER ---------------- */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 160px 20px 140px;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      margin: 15px 0 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      background-color: white;
+      color: var(--primary-color);
+      padding: 14px 35px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--secondary-color);
+      color: #fff;
+    }
+
+    /* ---------------- ABOUT ---------------- */
+    section {
+      max-width: 1100px;
+      margin: 100px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+
+    section p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 50px;
+    }
+
+    /* AQASMO brand font styling */
+    .brand-font {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* ---------------- PRODUCTS ---------------- */
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 35px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      width: 300px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-card h3 {
+      margin: 15px 0 8px;
+      color: var(--secondary-color);
+      font-size: 1.1rem;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      color: #666;
+      padding: 0 20px 20px;
+    }
+
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      background-color: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      margin-top: 80px;
+    }
+
+    footer a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 992px) {
+      header h1 {
+        font-size: 2.8rem;
+      }
+      header p {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 120px 15px;
+      }
+      header h1 {
+        font-size: 2.3rem;
+      }
+      .products {
+        flex-direction: column;
+        align-items: center;
+      }
+      section {
+        margin: 60px auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .btn {
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <header>
+    <h1><span class="brand-font">AQASMO</span></h1>
+    <p>Premium Household Essentials Crafted for Comfort, Quality, and Everyday Simplicity.</p>
+    
+  </header>
+
+  <!-- ABOUT SECTION -->
+  <section>
+    <h2>About <span class="brand-font">AQASMO</span></h2>
+    <p><span class="brand-font">AQASMO</span> brings you a curated range of household products designed for modern living. 
+    We focus on quality materials, smart functionality, and minimalist aesthetics — 
+    because every home deserves elegance and reliability.</p>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section>
+    <h2>Featured Products</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200.png?text=Cleaning+Set" alt="Cleaning Set">
+        <h3>Eco-Friendly Cleaning Kit</h3>
+        <p>Powerful and sustainable tools to keep your home spotless and chemical-free.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200.png?text=Storage+Box" alt="Storage Box">
+        <h3>Smart Storage Box</h3>
+        <p>Durable, minimal, and efficient storage to organize your household items.</p>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/300x200.png?text=Kitchen+Essentials" alt="Kitchen Essentials">
+        <h3>Kitchen Essentials Set</h3>
+        <p>Designed to make your cooking experience easy, efficient, and enjoyable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 <span class="brand-font">AQASMO</span>. All Rights Reserved.</p>
+    <div>
+      <a href="#">Amazon Store</a> |
+      <a href="#">Email Us</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+</body>
+</html>
