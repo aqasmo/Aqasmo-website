@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> AQASMO | Premium Household Products</title>
+  <title>AQASMO | Premium Household Products</title>
   <meta name="description" content="AQASMO offers premium household essentials that combine modern design and lasting quality. Shop our Amazon US store for cleaning tools, kitchen products, and home solutions.">
   
   <!-- Google Fonts -->
@@ -11,12 +11,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   
   <style>
-@font-face {
-  font-family: 'Nasalization';
-  src: url('fonts/nasalization-rg.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+    /* Font Face with multiple format support and fallbacks */
+    @font-face {
+      font-family: 'Nasalization';
+      src: url('fonts/nasalization-rg.ttf') format('truetype'),
+           url('./fonts/nasalization-rg.ttf') format('truetype'),
+           url('/fonts/nasalization-rg.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap; /* This helps with loading behavior */
+    }
+
+    @font-face {
+      font-family: 'Nasalization';
+      src: url('fonts/nasalization-rg.ttf') format('truetype'),
+           url('./fonts/nasalization-rg.ttf') format('truetype'),
+           url('/fonts/nasalization-rg.ttf') format('truetype');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+    }
 
     :root {
       --primary-color: #1e88e5;
@@ -29,13 +43,26 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
     }
 
     body {
       background-color: var(--light-gray);
       color: var(--text-color);
       line-height: 1.6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Debug styles - remove after font works */
+    .font-debug {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background: rgba(0,0,0,0.8);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      z-index: 1000;
     }
 
     /* ---------------- HEADER ---------------- */
@@ -51,9 +78,10 @@
     header h1 {
       font-size: 3.5rem;
       letter-spacing: 2px;
-      font-family: 'Nasalization', sans-serif;
+      font-family: 'Nasalization', 'Arial Black', 'Impact', sans-serif;
       font-weight: bold;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      margin-bottom: 20px;
     }
 
     header p {
@@ -62,6 +90,7 @@
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      font-family: 'Poppins', sans-serif;
     }
 
     .btn {
@@ -72,11 +101,15 @@
       font-weight: 600;
       text-decoration: none;
       transition: 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      display: inline-block;
+      margin-top: 20px;
     }
 
     .btn:hover {
       background-color: var(--secondary-color);
       color: #fff;
+      transform: translateY(-2px);
     }
 
     /* ---------------- ABOUT ---------------- */
@@ -89,23 +122,24 @@
 
     section h2 {
       font-size: 2.2rem;
-      letter-spacing: 0.000000001px;
       margin-bottom: 20px;
       color: var(--primary-color);
+      font-family: 'Playfair Display', serif;
     }
 
     section p {
       font-size: 1.1rem;
-      letter-spacing: 0.000000001px;
       color: #555;
       margin-bottom: 50px;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.8;
     }
 
-    /* AQASMO brand font styling */
+    /* AQASMO brand font styling with multiple fallbacks */
     .brand-font {
-      font-family: 'Nasalization', sans-serif;
+      font-family: 'Nasalization', 'Arial Black', 'Impact', sans-serif;
       font-weight: bold;
-      text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.2);
+      letter-spacing: 1px;
     }
 
     /* ---------------- PRODUCTS ---------------- */
@@ -119,42 +153,54 @@
     .product-card {
       background: #fff;
       border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
       width: 300px;
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .product-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
     .product-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
     }
 
     .product-card h3 {
-      margin: 15px 0 8px;
+      margin: 20px 0 10px;
       color: var(--secondary-color);
-      font-size: 1.1rem;
+      font-size: 1.3rem;
+      font-family: 'Playfair Display', serif;
     }
 
     .product-card p {
       font-size: 0.95rem;
       color: #666;
       padding: 0 20px 20px;
+      font-family: 'Poppins', sans-serif;
     }
 
     /* ---------------- FOOTER ---------------- */
     footer {
       background-color: var(--primary-color);
       color: white;
-      letter-spacing: 0.000000001px;
       text-align: center;
       padding: 50px 20px;
       margin-top: 80px;
+    }
+
+    footer p {
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
     }
 
     footer a {
@@ -162,9 +208,12 @@
       margin: 0 10px;
       text-decoration: none;
       font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      transition: color 0.3s;
     }
 
     footer a:hover {
+      color: #e3f2fd;
       text-decoration: underline;
     }
 
@@ -209,11 +258,16 @@
 </head>
 <body>
 
+  <!-- Debug element - remove when font works -->
+  <div class="font-debug" id="fontDebug">
+    Font Status: Loading...
+  </div>
+
   <!-- HERO SECTION -->
   <header>
     <h1><span class="brand-font">AQASMO</span></h1>
     <p>Premium Household Essentials Crafted for Comfort, Quality, and Everyday Simplicity.</p>
-    
+    <a href="#" class="btn">Shop Now on Amazon</a>
   </header>
 
   <!-- ABOUT SECTION -->
@@ -229,19 +283,19 @@
     <h2>Featured Products</h2>
     <div class="products">
       <div class="product-card">
-        <img src="https://via.placeholder.com/300x200.png?text=Cleaning+Set" alt="Cleaning Set">
+        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Cleaning Set">
         <h3>Eco-Friendly Cleaning Kit</h3>
         <p>Powerful and sustainable tools to keep your home spotless and chemical-free.</p>
       </div>
 
       <div class="product-card">
-        <img src="https://via.placeholder.com/300x200.png?text=Storage+Box" alt="Storage Box">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Storage Box">
         <h3>Smart Storage Box</h3>
         <p>Durable, minimal, and efficient storage to organize your household items.</p>
       </div>
 
       <div class="product-card">
-        <img src="https://via.placeholder.com/300x200.png?text=Kitchen+Essentials" alt="Kitchen Essentials">
+        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Kitchen Essentials">
         <h3>Kitchen Essentials Set</h3>
         <p>Designed to make your cooking experience easy, efficient, and enjoyable.</p>
       </div>
@@ -258,5 +312,29 @@
     </div>
   </footer>
 
+  <script>
+    // Font loading detection script
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if the font is loaded
+      if (document.fonts && document.fonts.check('1rem Nasalization')) {
+        document.getElementById('fontDebug').textContent = 'Font Status: Loaded Successfully';
+        document.getElementById('fontDebug').style.background = 'green';
+      } else {
+        document.getElementById('fontDebug').textContent = 'Font Status: Not Loaded - Check Console';
+        document.getElementById('fontDebug').style.background = 'red';
+        
+        // Try to load the font programmatically
+        const font = new FontFace('Nasalization', 'url(fonts/nasalization-rg.ttf)');
+        font.load().then(function(loadedFont) {
+          document.fonts.add(loadedFont);
+          document.getElementById('fontDebug').textContent = 'Font Status: Loaded via JavaScript';
+          document.getElementById('fontDebug').style.background = 'green';
+        }).catch(function(error) {
+          console.error('Font loading error:', error);
+          document.getElementById('fontDebug').textContent = 'Font Status: Error - Check Path';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
