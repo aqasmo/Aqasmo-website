@@ -18,43 +18,54 @@
   font-style: normal;
 }
 
+/* Prevent iOS Safari from resizing text */
+html {
+  -webkit-text-size-adjust: 100%;
+}
     :root {
-      --primary-color: #1e88e5;
-      --secondary-color: #1565c0;
-      --text-color: #333;
-      --light-gray: #f7f9fc;
-    }
+  --primary-color: #1e88e5;
+  --secondary-color: #1565c0;
+  --text-color: #333;
+  --light-gray: #f7f9fc;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    body {
-      background-color: var(--light-gray);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
+body {
+  background-color: var(--light-gray);
+  color: var(--text-color);
+  line-height: 1.6;
+}
 
-    /* ---------------- HEADER ---------------- */
-    header {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                  url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 160px 20px 140px;
-      position: relative;
-    }
+ /* ---------- HEADER ---------- */
+header {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 160px 20px 140px;
+  position: relative;
+}
 
-    header h1 {
-      font-size: 3.5rem;
-      letter-spacing: 2px;
-      font-family: 'Nasalization', serif;
-      font-weight: 700;
-    }
-
+  header h1 {
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+/* AQASMO brand font styling */
+.brand-font {
+  font-family: 'Nasalization', sans-serif;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: inherit; /* Matches parent heading or paragraph */
+  display: inline-block; /* Helps Safari size correctly */
+  transform: scale(1);   /* Normalizes font rendering */
+}
     header p {
       font-size: 1.3rem;
       margin: 15px 0 30px;
@@ -257,3 +268,4 @@
 
 </body>
 </html>
+
