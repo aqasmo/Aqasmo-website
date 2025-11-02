@@ -11,22 +11,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   
   <style>
-    /* Font Face with multiple format support and fallbacks */
+    /* Font Face with iOS-specific fixes */
     @font-face {
       font-family: 'Nasalization';
-      src: url('fonts/nasalization-rg.ttf') format('truetype'),
-           url('./fonts/nasalization-rg.ttf') format('truetype'),
-           url('/fonts/nasalization-rg.ttf') format('truetype');
+      src: url('fonts/nasalization-rg.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
-      font-display: swap; /* This helps with loading behavior */
+      font-display: swap;
     }
 
     @font-face {
       font-family: 'Nasalization';
-      src: url('fonts/nasalization-rg.ttf') format('truetype'),
-           url('./fonts/nasalization-rg.ttf') format('truetype'),
-           url('/fonts/nasalization-rg.ttf') format('truetype');
+      src: url('fonts/nasalization-rg.ttf') format('truetype');
       font-weight: bold;
       font-style: normal;
       font-display: swap;
@@ -50,19 +46,8 @@
       color: var(--text-color);
       line-height: 1.6;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    /* Debug styles - remove after font works */
-    .font-debug {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      background: rgba(0,0,0,0.8);
-      color: white;
-      padding: 10px;
-      border-radius: 5px;
-      font-size: 12px;
-      z-index: 1000;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* ---------------- HEADER ---------------- */
@@ -82,6 +67,9 @@
       font-weight: bold;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       margin-bottom: 20px;
+      /* iOS-specific fixes */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     header p {
@@ -125,6 +113,9 @@
       margin-bottom: 20px;
       color: var(--primary-color);
       font-family: 'Playfair Display', serif;
+      /* Ensure consistent sizing */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     section p {
@@ -135,11 +126,24 @@
       line-height: 1.8;
     }
 
-    /* AQASMO brand font styling with multiple fallbacks */
+    /* AQASMO brand font styling with iOS fixes */
     .brand-font {
       font-family: 'Nasalization', 'Arial Black', 'Impact', sans-serif;
       font-weight: bold;
       letter-spacing: 1px;
+      /* iOS font rendering fixes */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      /* Force consistent sizing */
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    /* Specific fix for header brand font */
+    header .brand-font {
+      font-size: 1em; /* Use parent element's font size */
     }
 
     /* ---------------- PRODUCTS ---------------- */
@@ -253,15 +257,33 @@
       .btn {
         padding: 12px 25px;
       }
+      
+      /* iOS-specific mobile fixes */
+      @supports (-webkit-touch-callout: none) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+        .brand-font {
+          -webkit-text-size-adjust: none;
+        }
+      }
+    }
+
+    /* Additional iOS-specific fixes */
+    @supports (-webkit-touch-callout: none) {
+      /* CSS specific to iOS devices */
+      .brand-font {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      header h1 {
+        -webkit-text-size-adjust: 100%;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- Debug element - remove when font works -->
-  <div class="font-debug" id="fontDebug">
-    Font Status: Loading...
-  </div>
 
   <!-- HERO SECTION -->
   <header>
@@ -312,29 +334,5 @@
     </div>
   </footer>
 
-  <script>
-    // Font loading detection script
-    document.addEventListener('DOMContentLoaded', function() {
-      // Check if the font is loaded
-      if (document.fonts && document.fonts.check('1rem Nasalization')) {
-        document.getElementById('fontDebug').textContent = 'Font Status: Loaded Successfully';
-        document.getElementById('fontDebug').style.background = 'green';
-      } else {
-        document.getElementById('fontDebug').textContent = 'Font Status: Not Loaded - Check Console';
-        document.getElementById('fontDebug').style.background = 'red';
-        
-        // Try to load the font programmatically
-        const font = new FontFace('Nasalization', 'url(fonts/nasalization-rg.ttf)');
-        font.load().then(function(loadedFont) {
-          document.fonts.add(loadedFont);
-          document.getElementById('fontDebug').textContent = 'Font Status: Loaded via JavaScript';
-          document.getElementById('fontDebug').style.background = 'green';
-        }).catch(function(error) {
-          console.error('Font loading error:', error);
-          document.getElementById('fontDebug').textContent = 'Font Status: Error - Check Path';
-        });
-      }
-    });
-  </script>
 </body>
 </html>
