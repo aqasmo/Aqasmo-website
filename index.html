@@ -8,7 +8,6 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
   <style>
 @font-face {
@@ -29,7 +28,7 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
@@ -38,15 +37,20 @@
       line-height: 1.6;
     }
 
-    /* TM symbol should stay system font */
+    /* Brand font ONLY */
+    .brand-font {
+      font-family: 'Nasalization', sans-serif;
+      letter-spacing: 2px;
+    }
+
+    /* TM stays system font */
     .tm {
-      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       font-size: 0.6em;
       vertical-align: super;
       margin-left: 2px;
       font-weight: normal;
     }
-
 
     /* ---------------- HEADER ---------------- */
     header {
@@ -55,25 +59,18 @@
       color: white;
       text-align: center;
       padding: 160px 20px 140px;
-      position: relative;
     }
 
     header h1 {
       font-size: 3.5rem;
-      letter-spacing: 2px;
-      font-family: 'Nasalization', serif;
-      font-weight: 700;
     }
 
     header p {
       font-size: 1.3rem;
-      margin: 15px 0 30px;
+      margin: 15px auto 30px;
       max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
-    /* ---------------- ABOUT ---------------- */
     section {
       max-width: 1100px;
       margin: 100px auto;
@@ -93,12 +90,6 @@
       margin-bottom: 50px;
     }
 
-    .brand-font {
-      font-family: 'Nasalization', sans-serif;
-      font-weight: 700;
-    }
-
-    /* ---------------- PRODUCTS ---------------- */
     .products {
       display: flex;
       flex-wrap: wrap;
@@ -112,32 +103,8 @@
       box-shadow: 0 3px 10px rgba(0,0,0,0.1);
       width: 300px;
       overflow: hidden;
-      transition: transform 0.3s;
     }
 
-    .product-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .product-card h3 {
-      margin: 15px 0 8px;
-      color: var(--secondary-color);
-      font-size: 1.1rem;
-    }
-
-    .product-card p {
-      font-size: 0.95rem;
-      color: #666;
-      padding: 0 20px 20px;
-    }
-
-    /* ---------------- FOOTER ---------------- */
     footer {
       background-color: var(--primary-color);
       color: white;
@@ -150,70 +117,47 @@
       color: white;
       margin: 0 10px;
       text-decoration: none;
-      font-weight: 500;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <header>
     <h1>
-      <span class="brand-font">AQASMO</span><span class="tm">™</span>
+      <span class="brand-font brand-name">AQASMO</span>
     </h1>
     <p>Premium Household Essentials Crafted for Comfort, Quality, and Everyday Simplicity.</p>
   </header>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section>
     <h2>
-      About <span class="brand-font">AQASMO</span><span class="tm">™</span>
+      About <span class="brand-font brand-name">AQASMO</span>
     </h2>
     <p>
-      <span class="brand-font">AQASMO</span><span class="tm">™</span> brings you a curated range of household products designed for modern living.
-      We focus on quality materials, smart functionality, and minimalist aesthetics —
-      because every home deserves elegance and reliability.
+      <span class="brand-font brand-name">AQASMO</span> brings you a curated range of household products designed for modern living.
     </p>
-  </section>
-
-  <!-- PRODUCTS SECTION -->
-  <section>
-    <h2>Featured Products</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200.png?text=Cleaning+Set" alt="Cleaning Set">
-        <h3>Eco-Friendly Cleaning Kit</h3>
-        <p>Powerful and sustainable tools to keep your home spotless and chemical-free.</p>
-      </div>
-
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200.png?text=Storage+Box" alt="Storage Box">
-        <h3>Smart Storage Box</h3>
-        <p>Durable, minimal, and efficient storage to organize your household items.</p>
-      </div>
-
-      <div class="product-card">
-        <img src="https://via.placeholder.com/300x200.png?text=Kitchen+Essentials" alt="Kitchen Essentials">
-        <h3>Kitchen Essentials Set</h3>
-        <p>Designed to make your cooking experience easy, efficient, and enjoyable.</p>
-      </div>
-    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 <span class="brand-font">AQASMO</span><span class="tm">™</span>. All Rights Reserved.</p>
-    <div>
-      <a href="#">Amazon Store</a> |
-      <a href="#">Email Us</a> |
-      <a href="#">Instagram</a>
-    </div>
+    <p>
+      &copy; 2026 <span class="brand-font brand-name">AQASMO</span>. All Rights Reserved.
+    </p>
   </footer>
+
+  <!-- AUTO TM SCRIPT -->
+  <script>
+    document.querySelectorAll('.brand-name').forEach(el => {
+      if (!el.nextSibling || el.nextSibling.nodeType !== 1 || !el.nextSibling.classList.contains('tm')) {
+        const tm = document.createElement('span');
+        tm.className = 'tm';
+        tm.textContent = '™';
+        el.after(tm);
+      }
+    });
+  </script>
 
 </body>
 </html>
-
