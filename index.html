@@ -48,7 +48,7 @@ body {
 
 /* HERO */
 .hero {
-  height: 100dvh; /* better than 100vh on mobile */
+  height: 100dvh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
               url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80')
               center/cover no-repeat;
@@ -76,29 +76,10 @@ body {
   line-height: 1.5;
 }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 12px 26px;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  text-decoration: none;
-  transition: 0.3s;
-  font-size: 1rem;
-  min-width: 160px;
-}
-
-.btn:hover {
-  background: var(--gold);
-  color: black;
-}
-
-/* MOBILE TWEAKS */
+/* MOBILE */
 @media (max-width: 480px) {
-  .btn {
-    width: 100%;
-    max-width: 260px;
+  .hero {
+    padding: 30px 15px;
   }
 }
 </style>
@@ -108,9 +89,12 @@ body {
 
 <section class="hero">
   <div>
-    <h1><span class="brand-font">AQASMO</span><span class="tm">™</span></h1>
-    <p>Elevating everyday living with refined household essentials crafted for modern luxury.</p>
-    <a href="#" class="btn">Explore Collection</a>
+    <h1>
+      <span class="brand-font">AQASMO</span><span class="tm">™</span>
+    </h1>
+    <p>
+      Elevating everyday living with refined household essentials crafted for modern luxury.
+    </p>
   </div>
 </section>
 
