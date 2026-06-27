@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AQASMO™ | Luxury Household Essentials</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -30,25 +29,11 @@ body {
   font-family: 'Poppins', sans-serif;
   background: var(--light);
   color: #222;
-  overflow-x: hidden;
-}
-
-/* Brand */
-.brand-font {
-  font-family: 'Nasalization';
-  letter-spacing: 1px;
-}
-
-.tm {
-  font-family: 'Sakkal Majalla', serif;
-  font-size: 0.6em;
-  vertical-align: super;
-  margin-left: 3px;
 }
 
 /* HERO */
 .hero {
-  height: 100dvh;
+  height: 100vh;
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
               url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80')
               center/cover no-repeat;
@@ -58,28 +43,31 @@ body {
   justify-content: center;
   text-align: center;
   color: white;
-
   padding: 20px;
 }
 
-.hero h1 {
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  margin-bottom: 20px;
-  line-height: 1.1;
+/* LOGO (FIXED - CLEAN SINGLE VERSION) */
+.logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  margin: 0 auto 20px auto;
+  filter: brightness(0) invert(1);
 }
 
+/* TEXT */
 .hero p {
   max-width: 600px;
   margin: auto;
   font-weight: 300;
-  font-size: clamp(1rem, 3.5vw, 1.2rem);
+  font-size: 1.1rem;
   line-height: 1.5;
 }
 
 /* MOBILE */
 @media (max-width: 480px) {
-  .hero {
-    padding: 30px 15px;
+  .logo {
+    height: 30px;
   }
 }
 </style>
@@ -88,14 +76,18 @@ body {
 <body>
 
 <section class="hero">
+
   <div>
-    <h1>
-      <span class="brand-font">AQASMO</span><span class="tm">™</span>
-    </h1>
+
+    <!-- SVG LOGO -->
+    <img src="logo.svg" alt="AQASMO Logo" class="logo">
+
     <p>
-      Elevating everyday living with refined household essentials crafted for modern luxury.
+      Elevating everyday living with thoughtfully designed household essentials
     </p>
+
   </div>
+
 </section>
 
 </body>
